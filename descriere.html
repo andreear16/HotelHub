@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descriere generală - HotelHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Descrierea aplicației</h1>
+    <p class="author">Proiect: Activitățile unui hotel – HotelHub</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Introducere</a></li>
+      <li><a href="descriere.html" class="active">Descriere generală</a></li>
+      <li><a href="baza_date.html">Model conceptual și relații</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="content">
+      <h2>Descriere generală a aplicației</h2>
+
+      <p>
+        Sistemul va fi organizat pe mai multe niveluri de acces, corespunzătoare categoriilor de utilizatori:
+      </p>
+
+      <ul>
+        <li><strong>1. Administratorul hotelului</strong> – gestionează camerele, tarifele, promoțiile și conturile de angajați.</li>
+        <li><strong>2. Recepționerul (angajatul)</strong> – verifică disponibilitatea camerelor, procesează rezervările și emite facturi.</li>
+        <li><strong>3. Clientul</strong> – caută camere, realizează rezervări online și vizualizează istoricul propriu.</li>
+      </ul>
+
+      <p>
+        Aplicația va avea o interfață publică (pentru clienți) și una administrativă, accesibilă după autentificare.
+        Drepturile de acces vor fi gestionate în funcție de rolul utilizatorului.
+      </p>
+    </section>
+
+    <hr>
+
+    <section class="uml-section">
+      <h3>Diagrame UML de secvență</h3>
+      <p>
+       În continuare am prezentat diagramele UML care ilustrează principalele interacțiuni dintre utilizatorii
+      aplicației: <strong>Client</strong>, <strong>Administrator</strong> și <strong>Recepționer</strong>.
+      </p>
+
+      <div class="uml-gallery">
+
+        <figure>
+          <img src="images/clientuml.png" alt="Diagrama UML - Client">
+          <figcaption>Fig. 1 - Client</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/adminuml.png" alt="Diagrama UML - Administrator">
+          <figcaption>Fig. 2 - Administrator</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/angajatuml.png" alt="Diagrama UML - Angajat">
+          <figcaption>Fig. 3 - Angajat (Recepționer)</figcaption>
+        </figure>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Radu Andreea-Valeria – Grupa 233</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model conceptual și relații - HotelHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Modelul conceptual al bazei de date</h1>
+    <p class="author">Proiect: Activitățile unui hotel – HotelHub</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Introducere</a></li>
+      <li><a href="descriere.html">Descriere generală</a></li>
+      <li><a href="baza_date.html" class="active">Model conceptual și relații</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="content">
+      <h2>Model conceptual al bazei de date</h2>
+
+      <table class="db-table">
+        <thead>
+          <tr>
+            <th>Entitate</th>
+            <th>Descriere</th>
+            <th>Atribute principale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>User</strong></td>
+            <td>Reprezintă toți utilizatorii aplicației (clienți, angajați, administratori)</td>
+            <td>id_user, nume, email, telefon, parola, rol, data_inregistrare</td>
+          </tr>
+
+          <tr>
+            <td><strong>Camera</strong></td>
+            <td>Cameră disponibilă în hotel</td>
+            <td>id_camera, numar_camera, tip_camera, pret_noapte, disponibilitate</td>
+          </tr>
+
+          <tr>
+            <td><strong>Rezervare</strong></td>
+            <td>Rezervare efectuată de un client și procesată de un angajat</td>
+            <td>id_rezervare, FK id_user_client, FK id_user_angajat, FK id_camera, data_checkin, data_checkout, status_rezervare</td>
+          </tr>
+
+          <tr>
+            <td><strong>Factura</strong></td>
+            <td>Document financiar emis pentru o rezervare</td>
+            <td>id_factura, FK id_rezervare, data_emitere, total, metoda_plata</td>
+          </tr>
+
+          <tr>
+            <td><strong>Serviciu</strong></td>
+            <td>Servicii suplimentare oferite clienților</td>
+            <td>id_serviciu, denumire, pret</td>
+          </tr>
+
+          <tr>
+            <td><strong>Rezervare_Serviciu</strong></td>
+            <td>Legătură M:N între rezervare și servicii</td>
+            <td>FK id_rezervare, FK id_serviciu</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content">
+      <h2>Relațiile dintre entități</h2>
+
+      <ul class="relations">
+        <li>
+          <strong>User – Rezervare (1 la N)</strong>
+          <p>
+            Un utilizator cu rol de client poate efectua mai multe rezervări.  
+            Un utilizator cu rol de angajat (recepționer) poate gestiona mai multe rezervări.  
+            Fiecare rezervare este asociată unui singur client și unui singur angajat.  
+            Relația este implementată prin două chei externe (<em>id_user_client</em> și <em>id_user_angajat</em>) în tabelul Rezervare.
+          </p>
+        </li>
+
+        <li>
+          <strong>Camera – Rezervare (1 la N)</strong>
+          <p>
+            O cameră poate fi rezervată de mai multe ori în timp, dar o rezervare se referă la o singură cameră.  
+            Relația permite gestionarea disponibilității camerelor și prevenirea rezervărilor simultane.
+          </p>
+        </li>
+
+        <li>
+          <strong>Rezervare – Factură (1 la 1)</strong>
+          <p>
+            Fiecare rezervare confirmată generează o singură factură.  
+            Factura conține informațiile financiare corespunzătoare rezervării respective.  
+            Relația este implementată prin cheia externă <em>id_rezervare</em> din tabelul Factura.
+          </p>
+        </li>
+
+        <li>
+          <strong>Rezervare – Serviciu (M la N)</strong>
+          <p>
+            O rezervare poate include mai multe servicii suplimentare (ex: mic dejun, spa, room service).  
+            Un serviciu poate fi asociat mai multor rezervări.  
+            Relația este implementată prin tabelul intermediar Rezervare_Serviciu,
+            care conține cheile externe <em>id_rezervare</em> și <em>id_serviciu</em>.
+          </p>
+        </li>
+
+        <li>
+          <strong>User – Factură (1 la N)</strong>
+          <p>
+            Un utilizator cu rol de angajat (recepționer) poate emite mai multe facturi.  
+            Fiecare factură este emisă de un singur angajat.  
+            Relația este implementată prin cheia externă <em>id_user_angajat</em> din tabelul Factura.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content">
+  <h2>Diagrama ER a bazei de date</h2>
+  <img src="images/hotelhub.png" alt="Diagrama ER a bazei de date" 
+       style="max-width:900px; width:100%; border:2px solid #ccc; border-radius:8px; box-shadow:2px 2px 10px rgba(0,0,0,0.1);">
+</section>
+
+  </main>
+
+  <footer>
+    <p>Radu Andreea-Valeria – Grupa 233</p>
+  </footer>
+</body>
+</html>
