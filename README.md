@@ -1,48 +1,69 @@
-# 🏨 HotelHub – Site de prezentare
+# HotelHub – Tema 1 și Tema 2 DAW
 
-Acest proiect reprezintă **site-ul de prezentare al aplicației web „HotelHub”**, realizat în cadrul disciplinei **Dezvoltarea Aplicațiilor Web (DAW)**.
-
-Scopul lucrării este de a **descrie arhitectura, funcționalitatea și modelul de bază de date** ale unei aplicații web dedicate administrării activităților unui hotel modern.
+Acest proiect conține atât Tema 1 (site public), cât și Tema 2 (panou administrare cu CRUD) pentru aplicația HotelHub.
 
 ---
 
-## 🌐 Vizualizare online
+## 🟦 TEMA 1 – Site Public
 
-🔗 [Accesează site-ul aici](https://andreear16.github.io/HotelHub/)
+Pagina publică prezintă hotelul și include:
 
----
+- pagină principală (index.html)
+- prezentarea hotelului
+- poze și descriere
+- structură HTML + CSS
+- arhitectură și modelul bazei de date (descriere.html, baza_date.html)
 
-## 📄 Conținutul site-ului
-
-Site-ul este alcătuit din trei pagini principale:
-
-- **Introducere & Scopul aplicației** – prezentarea generală a proiectului  
-- **Descriere generală** – rolurile utilizatorilor și diagramele UML  
-- **Modelul bazei de date** – entități, relații și diagrama ER  
+Nu include funcționalități dinamice.
 
 ---
 
-## 🧱 Structura proiectului
+## 🟩 TEMA 2 – Panou Administrare (PHP + MySQL)
 
-HotelHub/
-│
-├── index.html → Introducere & Scop
-├── descriere.html → Descriere generală + UML
-├── baza_date.html → Model conceptual + Relații
-│
-├── css/
-│ └── style.css → Stiluri generale
-│
-└── images/ → Imagini UML & ER
+Implementări incluse:
 
+### 🔐 Autentificare
+- login / logout
+- protecție pagini prin sesiune
+
+### 👥 CRUD Utilizatori
+- admin, angajat, client (folosesc același tabel `user`)
+- creare, afișare, editare, ștergere
+
+### 🏨 CRUD Camere
+- număr cameră
+- tip cameră
+- preț / noapte
+- disponibilitate
+
+### 📅 CRUD Rezervări
+- rezervări pentru clienți făcute de angajați sau admini
+- selectare client, angajat, cameră
+- check-in, check-out, status rezervare
+
+---
+## 🗄️ Baza de date
+
+### Tabele implementate:
+- **user**
+- **camere**
+- **rezervari**
+
+Fiecare tabel respectă structura din modelul de date din Tema 1.
 
 ---
 
-## 👩‍💻 Autor
+## 🛠️ Tehnologii
 
-**Radu Andreea-Valeria**  
-Grupa 233 – Facultatea de Matematică și Informatică, Universitatea din București  
+- HTML, CSS
+- PHP
+- MySQL
+- phpMyAdmin
 
 ---
 
-✨ *Site de prezentare realizat în scop educațional, pentru disciplina „Dezvoltarea Aplicațiilor Web (DAW)”.*
+## 🔗 Acces panou administrare
+
+app/auth/login.php
+
+---

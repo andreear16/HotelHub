@@ -18,7 +18,6 @@ header {
   position: relative;
 }
 
-/* strat semitransparent peste imagine */
 header::before {
   content: "";
   position: absolute;
@@ -26,11 +25,10 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 30, 80, 0.6); /* albastru închis translucid */
+  background: rgba(0, 30, 80, 0.6); 
   z-index: 0;
 }
 
-/* asigură că textul e deasupra overlay-ului */
 header h1,
 header .subtitle,
 header .author {
@@ -281,3 +279,4 @@ footer {
   font-size: 0.95rem;
   color: #003366;
 }
+
