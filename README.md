@@ -1,6 +1,7 @@
 # HotelHub – Tema 1 și Tema 2 DAW
 
 Acest proiect conține atât Tema 1 (site public), cât și Tema 2 (panou administrare cu CRUD) pentru aplicația HotelHub.
+Link site: https://aradu.daw.ssmr.ro/proiect/
 
 ---
 
