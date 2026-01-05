@@ -1,0 +1,299 @@
+/* ===== base (login + general) ===== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef3fb;
+}
+
+a { color: inherit; }
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin: 0 0 20px;
+    color: #003366;
+}
+
+.error-box {
+    background: #ffdddd;
+    padding: 10px;
+    border: 1px solid #cc0000;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    color: #660000;
+}
+
+.login-box input, .login-box select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #c9d2e3;
+    font-size: 15px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #003366;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.login-box button:hover { background: #0055aa; }
+
+/* vechiul dashboard (dacă îl mai folosești pe alte pagini) */
+.dashboard-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.dash-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.dash-btn {
+    display: block;
+    padding: 20px 30px;
+    background: #003366;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 180px;
+    transition: 0.2s;
+    text-decoration: none; /* important */
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.dash-btn:hover {
+    background: #0055aa;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #b30000;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none; /* important */
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.logout-btn:hover { background: #8a0000; }
+
+/* ===== DASHBOARD MODERN (hh-*) ===== */
+
+.hh-body {
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f0ff, #f7faff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hh-topbar {
+    background: #003366;
+    color: #fff;
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+.hh-brand {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+}
+
+.hh-user { font-size: 14px; opacity: 0.95; }
+
+.hh-dashboard {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 18px 40px;
+    text-align: center;
+}
+
+.hh-title {
+    margin: 0 0 10px;
+    color: #003366;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.hh-subtitle {
+    margin: 0 0 36px;
+    color: #3d4a5c;
+    font-size: 16px;
+}
+
+.hh-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+.hh-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 26px 22px;
+    text-decoration: none;
+    color: #0f2240;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hh-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+}
+
+.hh-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    background: rgba(0,85,170,0.10);
+    margin-bottom: 14px;
+}
+
+.hh-card-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.hh-card-desc {
+    font-size: 13px;
+    color: #51627a;
+}
+
+.hh-logout {
+    display: inline-block;
+    margin-top: 42px;
+    padding: 12px 26px;
+    border-radius: 12px;
+    background: #c62828;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 10px 22px rgba(198,40,40,0.25);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hh-logout:hover {
+    background: #a61f1f;
+    transform: translateY(-2px);
+}
+
+.hh-footer {
+    text-align: center;
+    padding: 18px 10px;
+    font-size: 12px;
+    color: #6b7686;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .hh-card-grid { grid-template-columns: 1fr; }
+    .hh-title { font-size: 28px; }
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+.styled-table thead {
+    background: #003366;
+    color: #fff;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background: #f3f6fb;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 2px;
+}
+
+.btn-success {
+    background: #0a8f3d;
+    color: #fff;
+}
+
+.btn-primary {
+    background: #0055aa;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #c62828;
+    color: #fff;
+}
+
+.btn-back {
+    margin-top: 30px;
+    background: #555;
+    color: #fff;
+}
