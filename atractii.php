@@ -2,7 +2,7 @@
 require_once __DIR__ . '/app/db/connection.php';
 
 $rez = $conn->query("
-    SELECT titlu, oras, sursa
+    SELECT titlu, oras, sursa, sursa_url
     FROM atractii
     ORDER BY titlu
 ");
@@ -32,7 +32,7 @@ function cleanSource(string $sursa, string $titlu): string {
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<title>Atracții turistice</title>
+<title>Parcuri din București</title>
 <link rel="stylesheet" href="/proiect/css/admin.css">
 
 <style>
@@ -149,8 +149,8 @@ function cleanSource(string $sursa, string $titlu): string {
     <div class="atr-card">
 
         <div class="atr-header">
-            <h1>Atracții turistice</h1>
-            <p>Conținut preluat de pe Wikipedia – import offline</p>
+            <h1>Parcuri din București</h1>
+            <p>Conținut preluat de pe Wikipedia – import live</p>
         </div>
 
         <table class="atr-table">
@@ -173,7 +173,13 @@ function cleanSource(string $sursa, string $titlu): string {
                     <tr>
                         <td data-label="Denumire"><strong><?= htmlspecialchars($titlu) ?></strong></td>
                         <td data-label="Oraș"><span class="badge"><?= htmlspecialchars($oras ?: '—') ?></span></td>
-                        <td data-label="Sursă"><?= htmlspecialchars($sursa) ?></td>
+                        <td data-label="Sursă">
+                            <?php if (!empty($a['sursa_url'])): ?>
+                                <a href="<?= htmlspecialchars($a['sursa_url']) ?>" target="_blank"><?= htmlspecialchars($sursa) ?></a>
+                            <?php else: ?>
+                                <?= htmlspecialchars($sursa) ?>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>

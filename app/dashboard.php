@@ -156,11 +156,21 @@ $rol  = $_SESSION['rol'];
             </div>
 
             <div class="col-12 col-md-6 col-lg-4">
-                <a href="/proiect/app/atractii/import_local.php" class="hub-card">
-                    <div class="hub-icon">🗺️</div>
+                <a href="/proiect/app/analytics/index.php" class="hub-card">
+                    <div class="hub-icon">📈</div>
                     <div>
-                        <p class="hub-title">Import Atracții</p>
-                        <p class="hub-desc">Import din atractii.txt (Wikipedia)</p>
+                        <p class="hub-title">Analytics</p>
+                        <p class="hub-desc">Vizitatori & accesări pagini</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="/proiect/app/atractii/import_wikipedia.php" class="hub-card">
+                    <div class="hub-icon">🌐</div>
+                    <div>
+                        <p class="hub-title">Import Parcuri</p>
+                        <p class="hub-desc">Wikipedia (import live, parsare)</p>
                     </div>
                 </a>
             </div>
@@ -208,6 +218,17 @@ $rol  = $_SESSION['rol'];
                     </div>
                 </a>
             </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="/proiect/app/analytics/index.php" class="hub-card">
+                    <div class="hub-icon">📈</div>
+                    <div>
+                        <p class="hub-title">Analytics</p>
+                        <p class="hub-desc">Vizitatori & accesări pagini</p>
+                    </div>
+                </a>
+            </div>
+
 
         <?php endif; ?>
 
@@ -267,8 +288,8 @@ $rol  = $_SESSION['rol'];
                 <a href="/proiect/atractii.php" class="hub-card">
                     <div class="hub-icon">📍</div>
                     <div>
-                        <p class="hub-title">Atracții turistice</p>
-                        <p class="hub-desc">Obiective din oraș (Wikipedia)</p>
+                        <p class="hub-title">Parcuri din oraș</p>
+                        <p class="hub-desc">Locuri de relaxare</p>
                     </div>
                 </a>
             </div>

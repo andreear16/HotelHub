@@ -1,9 +1,14 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../db/connection.php';
+
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
+
+require_once __DIR__ . '/analytics.php';
+trackPageView();
 
 function requireLogin() {
     if (!isset($_SESSION['user_id'])) {
@@ -15,10 +20,7 @@ function requireLogin() {
 function requireRole(array $roles) {
     requireLogin();
 
-    if (
-        !isset($_SESSION['rol']) ||
-        !in_array($_SESSION['rol'], $roles, true)
-    ) {
+    if (!isset($_SESSION['rol']) || !in_array($_SESSION['rol'], $roles, true)) {
         http_response_code(403);
         echo "Acces interzis.";
         exit;
