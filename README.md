@@ -1,151 +1,87 @@
-# HotelHub – Tema 1, Tema 2, Tema 3 și Tema 4 (DAW)
+# HotelHub – Proiect DAW (Tema 1–4)
 
-Acest proiect reprezintă o aplicație web completă pentru managementul unui hotel, dezvoltată progresiv pe parcursul mai multor teme din cadrul disciplinei **DAW**.
-
-Proiectul conține:
-- **Tema 1** – site public (prezentare hotel)
-- **Tema 2** – panou de administrare + CRUD (PHP + MySQL)
-- **Tema 3** – roluri + securizare + înregistrare + reCAPTCHA
-- **Tema 4** – funcționalități avansate: import/export, conținut extern, email, element multimedia, compatibilitate cross-browser
+HotelHub este o aplicație web pentru managementul unui hotel, dezvoltată progresiv în cadrul disciplinei **DAW**, pe parcursul temelor 1–4.
 
 ---
 
-## 🟦 TEMA 1 – Site Public (Static)
+## Conținut pe teme
 
-Partea publică a aplicației prezintă hotelul și informații generale.
-
-### Conținut:
-- pagină principală (`index.html`)
-- prezentarea hotelului
-- imagini și descrieri
-- structură HTML + CSS
-- arhitectură aplicație + model bază de date (ex: `descriere.html`, `baza_date.html`)
-
-Nu include funcționalități dinamice.
+### 🟦 Tema 1 – Site public
+Partea publică prezintă hotelul și informații generale (pagini de prezentare, layout, imagini, structură HTML/CSS).
 
 ---
 
-## 🟩 TEMA 2 – Panou Administrare (PHP + MySQL)
-
-Implementări principale:
-
-### 🔐 Autentificare
-- login / logout
-- protecție pagini prin sesiune
-
-### 👥 CRUD Utilizatori (admin-only)
-- creare, afișare, editare, ștergere
-- roluri: `admin`, `angajat`, `client`
-
-### 🛏️ CRUD Camere (admin + angajat)
-- număr cameră
-- tip cameră
-- preț / noapte
-- disponibilitate
-
-### 📅 CRUD Rezervări
-- admin / angajat: gestionare rezervări
-- client: rezervări proprii
-
-### 🧾 Facturi
-- angajat / admin: emitere facturi
-- client: vizualizare facturi proprii
-
-### 🛎️ Servicii (admin-only)
-- CRUD servicii hotel (denumire + preț)
+### 🟩 Tema 2 – PHP + MySQL + CRUD
+Aplicația devine dinamică și folosește o bază de date MySQL. Sunt implementate operații CRUD și pagini interconectate:
+- autentificare (login/logout) și sesiuni
+- CRUD utilizatori (admin)
+- CRUD camere (admin/angajat)
+- CRUD rezervări (client + admin/angajat)
+- facturi (admin/angajat emit, client vede)
+- servicii (admin)
 
 ---
 
-## 🟨 TEMA 3 – Roluri + Securitate + Înregistrare + Protecție Formulare
-
-Tema 3 adaugă:
-
-- separarea strictă a rolurilor (verificată server-side)
-- securizarea aplicației împotriva atacurilor comune
-- **înregistrare utilizatori**
-- **reCAPTCHA pe formularele publice**
-
-### 🔐 Securitate implementată:
-- SQL Injection  
-  - prepared statements (`$conn->prepare(...)`)
-- XSS  
-  - afișare sigură cu `htmlspecialchars(...)`
-- CSRF  
-  - token CSRF în sesiune  
-  - verificare CSRF pentru request-uri POST
-- Form Spoofing / HTTP Request Spoofing  
-  - validări server-side
-  - filtrare tipuri (int / float / date)
-- Protecție formulare publice  
-  - `register.php` protejat cu **Google reCAPTCHA**
+### 🟨 Tema 3 – Roluri + securitate + înregistrare + protecție formulare
+Se adaugă:
+- înregistrare utilizatori
+- separarea strictă a rolurilor, verificată server-side
+- protecții împotriva atacurilor comune (SQL Injection, XSS, CSRF etc.)
+- Google reCAPTCHA pe formulare publice (ex: înregistrare și contact)
 
 ---
 
-## 🟧 TEMA 4 – Funcționalități Avansate
+### 🟧 Tema 4 – Funcționalități avansate
 
-Tema 4 extinde aplicația cu funcționalități suplimentare cerute pentru o aplicație web completă.
+#### 🌍 Integrare externă (parsare conținut)
+- import **live** din Wikipedia prin API și parsare conținut
+- conținutul este modelat și salvat în MySQL
+- caching în DB pentru a evita request-uri repetate
+- afișare într-o pagină publică (ex: listă parcuri/atracții)
 
-### 🌍 Conținut extern parsat / modelat
-- import de **atracții turistice** dintr-un fișier extern (`atractii.txt`)
-- datele sunt procesate și salvate în baza de date
-- sursa informațiilor: **Wikipedia**
-- afișare într-o pagină dedicată accesibilă clientului
+#### 📊 Website analytics + element multimedia
+- tracking vizite/pagini accesate în tabela `page_views`
+- pagină de analytics cu statistici și grafice (Chart.js)
 
-### 📧 Trimitere email
-- formular de **Contact** accesibil clientului
-- trimitere email către recepție folosind SMTP (Gmail App Password)
-- validări server-side + protecție CSRF
+#### 📧 Email
+- formular de contact (public)
+- trimitere email către recepție prin SMTP (PHPMailer)
+- validări server-side + protecție CSRF + reCAPTCHA
 
-### 📤 Import / Export date
-- **Export Excel**:
-  - rezervări
-- **Export PDF**:
-  - facturi individuale (folosind Dompdf)
-- exportul este securizat în funcție de rol:
-  - client → doar datele proprii
-  - admin / angajat → toate datele
+#### 📤 Import / Export
+- export rezervări în format Excel (HTML → `.xls`, download)
+- export factură în PDF (Dompdf)
+- exporturile respectă rolurile:
+  - client: doar datele proprii
+  - admin/angajat: toate datele
 
-### 📊 Element multimedia (statistici)
-- pagină de **Statistici**
-- grafic cu:
-  - număr de rezervări
-  - încasări totale
-- implementat cu librărie JavaScript pentru grafice
-
-### 🌐 Compatibilitate cross-browser
+#### 🌐 Compatibilitate cross-browser
 - layout responsive
-- utilizarea **Bootstrap** pentru:
-  - grid
-  - carduri
-  - formulare
-- aplicația funcționează corect în:
-  - Chrome
-  - Firefox
-  - Edge
+- Bootstrap pentru grid, formulare și componente
+- testat în Chrome / Firefox / Edge
 
 ---
 
 ## 👤 Roluri și acces
 
 ### 🔴 Administrator
-- gestionează camere, tarife, servicii
-- gestionează conturi angajați
-- vede toate rezervările și toate facturile
-- acces la statistici și import date externe
+- gestionează camere, servicii și conturi
+- vede toate rezervările și facturile
+- acces la import extern + analytics/statistici
 
 ### 🟠 Angajat (Recepționer)
-- verifică disponibilitatea camerelor
 - gestionează rezervări
 - emite facturi
-- acces la statistici
+- acces la analytics/statistici
 
 ### 🟢 Client
 - caută camere disponibile într-o perioadă
 - realizează rezervări online
 - vede rezervările proprii
+- exportă rezervările (Excel)
 - vede și exportă facturile proprii (PDF)
 - trimite mesaje prin formularul de contact
-- consultă atracțiile turistice
+- consultă pagina publică cu conținut extern (parcuri/atracții)
 
 Separarea rolurilor este realizată cu:
 - `requireLogin()`
@@ -155,26 +91,26 @@ Separarea rolurilor este realizată cu:
 
 ## 🗄️ Baza de date
 
-### Tabele utilizate:
+Tabele principale:
 - `user`
 - `camere`
 - `rezervari`
 - `factura`
 - `serviciu`
 - `atractii`
+- `page_views`
+- `external_cache`
 
 ---
 
 ## 🛠️ Tehnologii utilizate
 
-- HTML
-- CSS
+- HTML / CSS
 - Bootstrap
 - PHP
 - MySQL
+- Chart.js
 - Google reCAPTCHA
+- PHPMailer (SMTP)
 - Dompdf
-- SMTP (email)
 - phpMyAdmin
-
----
